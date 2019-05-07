@@ -1,0 +1,287 @@
+﻿@model RMS.Models.Job
+@{
+    ViewBag.Title = "JobView";
+}
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title> RMS Resume Management System - Job List Page </title>
+</head>
+
+<body>
+    <!-- page-header -->
+    <div class="job-pageheader">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="job-caption">
+                        <h1 class="job-title">Candidate Selection for @Model.title</h1>
+                        <!-- <p><span class="job-location-icon"><i class="fa fa-map-marker"></i></span>Lahore, Pakistan</p> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- job-single-section -->
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-offset-2 col-lg-8 col-md-offset-2  col-md-8 col-sm-12 col-xs-12">
+                    <!-- about-job -->
+                    <form method="POST">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="row">
+                                    <h2>Filter Job Applicant by</h2>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <div class="job-data">
+                                            <ul>
+                                                <span>First Name</span>
+                                                <input type="checkbox" id="nameCheckox">
+                                                <br>
+                                                <span>Last Name</span>
+                                                <input type="checkbox" id="nameCheckox">
+                                                <br>
+                                                <span>Years of Experience</span>
+                                                <input type="checkbox" id="expCheckox">
+                                                <br>
+                                                <span>City</span>
+                                                <input type="checkbox" id="cityCheckox">
+                                                <br>
+                                                <span>Degree</span>
+                                                <input type="checkbox" id="degreeCheckox">
+                                                <br>
+                                                <span>Field</span>
+                                                <input type="checkbox" id="fieldCheckox">
+                                                <br>
+                                                <span>Institute</span>
+                                                <input type="checkbox" id="fieldCheckox">
+                                                <br>
+                                                <span>Department of Interest</span>
+                                                <input type="checkbox" id="nameCheckox">
+                                                <br>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <div class="job-data">
+
+                                            <input type="text" id="firsttName" class="form-control" name="expTextField" placeholder="First Name" style="margin-bottom:5px; width:80%;">
+                                            <input type="text" id="lastName" class="form-control" name="expTextField" placeholder="Last Name" style="margin-bottom:5px; width:80%;">
+                                            <input type="text" id="experience" class="form-control" name="expTextField" placeholder="Experience" style="margin-bottom:5px; width:80%;">
+
+                                            <select style="width: 80%;">
+                                                <option value="volvo" selected="selected">City Name</option>
+                                                @foreach (string item in Model.city)
+                                                {
+                                                    <option value="saab">@item</option>
+                                                }
+                                            </select>
+
+                                            <select style="width: 80%;">
+                                                <option value="volvo" selected="selected">Degree Name</option>
+                                                @foreach (string item in Model.degree)
+                                                {
+                                                    <option value="saab">@item</option>
+                                                }
+
+                                            </select>
+
+                                            <select style="width: 80%;">
+                                                <option value="volvo" selected="selected">Field Name</option>
+                                                <option value="saab">Web Development</option>
+                                                <option value="mercedes">Mobile Development</option>
+                                            </select>
+
+                                            <select style="width: 80%;">
+                                                <option value="volvo" selected="selected">Institute Name</option>
+                                                @foreach (string item in Model.institute)
+                                                {
+                                                    <option value="saab">@item</option>
+                                                }
+                                            </select>
+
+                                            <select style="width: 80%;">
+                                                <option value="volvo" selected="selected">Department of Interest</option>
+                                                @foreach (string item in Model.dept)
+                                                {
+                                                    <option value="saab">@item</option>
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.about-job -->
+                        </div>
+                        <div class="row" style="margin-top:20px;">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="text-align:right; "><input type="submit" class="btn btn-outline" /></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="text-align:left; "><input type="reset" class="btn btn-outline" /></div>
+                        </div>
+                    </form>
+                    <hr>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <h2 class="mb30">Job Applicant Search Results</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="table">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Job Title</th>
+                                            <th>Department</th>
+                                            <th>Designation Applied For</th>
+                                            <th>Degree Name</th>
+                                            <th>Institute Name</th>
+                                            <th>Total Experience</th>
+                                            <th>Recent Organization</th>
+                                            <th>Recent Designation</th>
+                                            <th>Applicant Details</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                          @foreach(RMS.Models.User item in Model.users)
+                                           { 
+                                              <tr>
+                                                <th scope="row">@item.id</th>
+                                                <td>@item.firtName</td>
+                                                <td>@item.lastName</td>
+                                                <td>@item.jobTitle</td>
+                                                <td>@item.department</td>
+                                                <td>@item.designationApplied</td>
+                                                <td>@item.degree</td>
+                                                <td>@item.institute</td>
+                                                <td>4 year</td>
+                                                <td>i2C</td>
+                                                <td>Associate Software Engineer</td>
+                                                <td><a href="#">View</a></td>
+                                              </tr>
+                                           } 
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12" style="text-align:right; ">
+                            <a href="#" class="btn btn-primary mb20">Schedule Interview</a>
+                        </div>
+                    </div><hr>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ./job-single-section -->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <!-- footer-contact links -->
+                <div class=" col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="footer-widget">
+                        <h3 class="footer-title">Contact Info </h3>
+                        <div class="contact-info">
+                            <span class="contact-icon"><i class="fa fa-map-marker"></i></span>
+                            <span class="contact-text">1847 Goldleaf Lane River <br> Edge, USA 07649 </span>
+                        </div>
+                        <div class="contact-info">
+                            <span class="contact-icon"><i class="fa fa-phone"></i></span>
+                            <span class="contact-text">+180-123-4567 / 89</span>
+                        </div>
+                        <div class="contact-info">
+                            <span class="contact-icon"><i class="fa fa-envelope"></i></span>
+                            <span class="contact-text">info@demo.com</span>
+                        </div>
+                        <div class="ft-social">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.footer-useful links -->
+                <!-- footer-company-links -->
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="footer-widget">
+                        <h3 class="footer-title">Company</h3>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <ul class="arrow">
+                                    <li><a href="#">Home </a></li>
+                                    <li><a href="#">About</a></li>
+                                    <li><a href="#">Services</a></li>
+                                    <li><a href="#">Blog</a></li>
+                                    <li><a href="#">Job List</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <ul class="arrow">
+                                    <li><a href="#">Contact Us</a></li>
+                                    <li><a href="#">Client reviews</a></li>
+                                    <li><a href="#">Partner</a></li>
+                                    <li><a href="#">Consultation</a></li>
+                                    <li><a href="#">Help Center</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.footer-services-links -->
+                <!-- footer-useful links -->
+                <div class=" col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                    <div class="ft-logo"><img src="./images/ft_logo.png" alt=""></div>
+                </div>
+                <!-- /.footer-useful links -->
+            </div>
+        </div>
+        <!-- tiny-footer -->
+        <div class="tiny-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <p>
+                            Copyright © All Rights Reserved 2020 Template Design by
+                            <a href="https://easetemplate.com/" target="_blank" class="copyrightlink">EaseTemplate</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- /. tiny-footer -->
+        </div>
+    </div>
+    <!-- /.footer -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="js/menumaker.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/jquery.sticky.js"></script>
+    <script type="text/javascript" src="js/sticky-header.js"></script>
+    <script type="text/javascript">
+        $("#dots").click(function () {
+            $(".top-header").toggle("slow", function () {
+                // Animation complete.
+            });
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,158 @@
+﻿@model IEnumerable<RMS.Models.Job>
+@{
+    ViewBag.Title = "JobList";
+
+}
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title> RMS Resume Management System - Job List Page </title>
+</head>
+
+<body>
+    <!-- page-header -->
+    <div class="job-pageheader">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="job-caption">
+                        <h1 class="job-title">Jobs List</h1>
+                        <!-- <p><span class="job-location-icon"><i class="fa fa-map-marker"></i></span>Lahore, Pakistan</p> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- job-list-section -->
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <!-- job-list -->
+                
+                @foreach (RMS.Models.Job item in Model)
+                {
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="job-post-block">
+                            <div class="job-post-content">
+                                <a href="/JobView/JobView/@item.id"><h3 class="job-post-title">@item.title</h3></a>
+                                <p><span class="job-locatitemion-icon"><i class="fa fa-map-marker"></i></span>@item.description</p>
+                                <p><span class="job-locatitemion-icon"><i class="fa fa-map-marker"></i></span>Salary: @item.salary</p>
+                            </div>
+                            <div class="job-post-meta">
+                                <p>Required SKills: </p>
+                                <span class="badge">@item.skills</span>
+                            </div>
+                        </div>
+                    </div>
+                }
+                
+            </div>
+        </div>
+    </div>
+    <!-- job-list-section -->
+
+
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <!-- footer-contact links -->
+                <div class=" col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="footer-widget">
+                        <h3 class="footer-title">Contact Info </h3>
+                        <div class="contact-info">
+                            <span class="contact-icon"><i class="fa fa-map-marker"></i></span>
+                            <span class="contact-text">1847 Goldleaf Lane River <br> Edge, USA 07649 </span>
+                        </div>
+                        <div class="contact-info">
+                            <span class="contact-icon"><i class="fa fa-phone"></i></span>
+                            <span class="contact-text">+180-123-4567 / 89</span>
+                        </div>
+                        <div class="contact-info">
+                            <span class="contact-icon"><i class="fa fa-envelope"></i></span>
+                            <span class="contact-text">info@demo.com</span>
+                        </div>
+                        <div class="ft-social">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.footer-useful links -->
+                <!-- footer-company-links -->
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="footer-widget">
+                        <h3 class="footer-title">Company</h3>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <ul class="arrow">
+                                    <li><a href="#">Home </a></li>
+                                    <li><a href="#">About</a></li>
+                                    <li><a href="#">Services</a></li>
+                                    <li><a href="#">Blog</a></li>
+                                    <li><a href="#">Job List</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <ul class="arrow">
+                                    <li><a href="#">Contact Us</a></li>
+                                    <li><a href="#">Client reviews</a></li>
+                                    <li><a href="#">Partner</a></li>
+                                    <li><a href="#">Consultation</a></li>
+                                    <li><a href="#">Help Center</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.footer-services-links -->
+                <!-- footer-useful links -->
+                <div class=" col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                    <div class="ft-logo"><img src="./images/ft_logo.png" alt=""></div>
+                </div>
+                <!-- /.footer-useful links -->
+            </div>
+        </div>
+        <!-- tiny-footer -->
+        <div class="tiny-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <p>
+                            Copyright © All Rights Reserved 2020 Template Design by
+                            <a href="https://easetemplate.com/" target="_blank" class="copyrightlink">EaseTemplate</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- /. tiny-footer -->
+        </div>
+    </div>
+    <!-- /.footer -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="js/menumaker.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/jquery.sticky.js"></script>
+    <script type="text/javascript" src="js/sticky-header.js"></script>
+    <script type="text/javascript">
+        $("#dots").click(function () {
+            $(".top-header").toggle("slow", function () {
+                // Animation complete.
+            });
+        });
+    </script>
+
+</body>
+
+</html>
